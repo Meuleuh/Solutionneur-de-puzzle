@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solutionneur de sudoku", "Solutionneur de sudoku\Solutionneur de sudoku.csproj", "{636293A4-4F74-4441-A986-53D1D35BAC0B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{636293A4-4F74-4441-A986-53D1D35BAC0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{636293A4-4F74-4441-A986-53D1D35BAC0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{636293A4-4F74-4441-A986-53D1D35BAC0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{636293A4-4F74-4441-A986-53D1D35BAC0B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2E8C315F-347C-422C-B588-A4E9DFCD135D}
+	EndGlobalSection
+EndGlobal
