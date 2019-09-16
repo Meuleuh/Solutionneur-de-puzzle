@@ -1,0 +1,1 @@
+# Solutionneur-de-sudoku
