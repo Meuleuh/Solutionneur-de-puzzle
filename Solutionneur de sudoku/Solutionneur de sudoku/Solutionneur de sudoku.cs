@@ -27,7 +27,6 @@ namespace Solutionneur_de_sudoku
                     casesDeSudoku[i, j] = new Sous_fonctions.Case();
                     casesDeSudoku[i, j].Size = new Size(30, 30);
                     casesDeSudoku[i, j].Location = new Point(hPos, vPos);
-                    casesDeSudoku[i, j].FlatAppearance.BorderColor = Color.White;
                     casesDeSudoku[i, j].Click += casesDeSudoku[i, j].addValue;
 
                     /*
@@ -54,9 +53,26 @@ namespace Solutionneur_de_sudoku
                     vPos += 31;
                 }
             }
+            Button sudokuEntre = new Button();
+            sudokuEntre.Location = new Point(3, 288);
+            sudokuEntre.FlatAppearance.BorderColor = Color.White;
+            sudokuEntre.Size = new Size(282, 30);
+            sudokuEntre.ForeColor = Color.Black;
+            sudokuEntre.BackColor = Color.White;
+            sudokuEntre.FlatStyle = new FlatStyle();
+            sudokuEntre.Text = "Grille entrée";
+            Controls.Add(sudokuEntre);
+
+            //Need fix
+            sudokuEntre.Click += Resolution(casesDeSudoku);
         }
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Resolution(Sous_fonctions.Case[,] grille)
         {
 
         }

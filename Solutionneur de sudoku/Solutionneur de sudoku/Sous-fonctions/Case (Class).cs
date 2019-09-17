@@ -12,12 +12,19 @@ namespace Solutionneur_de_sudoku.Sous_fonctions
         internal int value = 0;
         internal void addValue(object sender, EventArgs e)
         {
-            value += 1;
+            if (value < 9)
+            {
+                value += 1;
+            }
+            else
+            {
+                value = 0;
+            }
             Text = value.ToString();
         }
         internal void valueFound(int value)
         {
-            for(int valueI = 1; valueI < 10; valueI++)
+            for(int valueI = 1; valueI <= 9; valueI++)
             {
                 if (value != valueI && possibleValues.Contains(valueI))
                 {
@@ -32,6 +39,7 @@ namespace Solutionneur_de_sudoku.Sous_fonctions
             BackColor = Color.White;
             FlatStyle = new FlatStyle();
             Text = value.ToString();
+            FlatAppearance.BorderColor = Color.White;
         }
     }
 }
