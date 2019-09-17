@@ -35,7 +35,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(288, 288);
-            this.Name = "Solutionneur de sudoku";
+            this.Name = "Form1";
             this.Text = "Solutionneur de sudoku";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);

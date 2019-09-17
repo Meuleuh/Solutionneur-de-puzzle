@@ -17,6 +17,8 @@ namespace Solutionneur_de_sudoku
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+            
         }
+
     }
 }
