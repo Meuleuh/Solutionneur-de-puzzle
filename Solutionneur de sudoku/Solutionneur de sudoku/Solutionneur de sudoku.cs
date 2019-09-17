@@ -13,7 +13,7 @@ namespace Solutionneur_de_sudoku
 {
     public partial class Form1 : Form
     {
-        Sous_fonctions.Case[,] casesDeSudoku = new Sous_fonctions.Case[9, 9];
+        Sous_fonctions.Grille grille = new Sous_fonctions.Grille();
         public Form1()
         {
             int hPos = 3;
@@ -24,17 +24,17 @@ namespace Solutionneur_de_sudoku
                 hPos = 3;
                 for (int i = 0; i <= 8; i++)
                 {
-                    casesDeSudoku[i, j] = new Sous_fonctions.Case();
-                    casesDeSudoku[i, j].Size = new Size(30, 30);
-                    casesDeSudoku[i, j].Location = new Point(hPos, vPos);
-                    casesDeSudoku[i, j].Click += casesDeSudoku[i, j].addValue;
+                    grille.casesDeSudoku[i, j] = new Sous_fonctions.Case();
+                    grille.casesDeSudoku[i, j].Size = new Size(30, 30);
+                    grille.casesDeSudoku[i, j].Location = new Point(hPos, vPos);
+                    grille.casesDeSudoku[i, j].Click += grille.casesDeSudoku[i, j].addValue;
 
                     /*
                      * À mettre pour les cases dont la valeur a été définie dès le début
                      * casesDeSudoku[i, j].Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point,(0));
                     */
 
-                    Controls.Add(casesDeSudoku[i, j]);
+                    Controls.Add(grille.casesDeSudoku[i, j]);
                     if (i == 2 || i == 5)
                     {
                         hPos += 33;
@@ -64,15 +64,10 @@ namespace Solutionneur_de_sudoku
             Controls.Add(sudokuEntre);
 
             //Need fix
-            sudokuEntre.Click += Resolution(casesDeSudoku);
+            sudokuEntre.Click += grille.valeursEntrees;
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Resolution(Sous_fonctions.Case[,] grille)
         {
 
         }
