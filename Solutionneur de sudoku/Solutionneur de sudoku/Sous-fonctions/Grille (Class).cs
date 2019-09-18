@@ -17,7 +17,7 @@ namespace Solutionneur_de_sudoku.Sous_fonctions
 
             while (caseResolue || !grilleResolue)
             {
-                 
+                
             }
         }
 
