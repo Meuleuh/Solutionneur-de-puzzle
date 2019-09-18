@@ -14,8 +14,8 @@ namespace Solutionneur_de_sudoku.Sous_fonctions
                     if (grille.casesDeSudoku[i,j].value != 0)
                     {
                         casesDeSudoku[i, j].valueFound(casesDeSudoku[i, j].value);
+                        grille.casesDeSudoku[i, j].gridEntered = true;
                     }
-                    grille.casesDeSudoku[i, j].gridEntered = true;
                 }
             }
             return grille;
