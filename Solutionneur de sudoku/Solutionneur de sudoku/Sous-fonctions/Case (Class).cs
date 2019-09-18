@@ -5,9 +5,9 @@ using System.Drawing;
 
 namespace Solutionneur_de_sudoku.Sous_fonctions
 {
-    public class Case : Button
+    public partial class Case : Button
     {
-        bool isSolved = false;
+        internal bool isSolved = false;
         List<int> possibleValues = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
         internal int value = 0;
         internal bool gridEntered = false;

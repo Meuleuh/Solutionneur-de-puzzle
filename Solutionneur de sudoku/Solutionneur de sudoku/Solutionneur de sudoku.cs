@@ -58,6 +58,7 @@ namespace Solutionneur_de_sudoku
             sudokuEntre.Text = "Grille entrée";
             Controls.Add(sudokuEntre);
             sudokuEntre.Click += grille.valeursEntrees;
+            this.BackColor = Color.Black;
         }
 
         private void Form1_Load(object sender, EventArgs e)
