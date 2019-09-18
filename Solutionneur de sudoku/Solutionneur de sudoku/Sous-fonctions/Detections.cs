@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Solutionneur_de_sudoku.Sous_fonctions
+﻿namespace Solutionneur_de_sudoku.Sous_fonctions
 {
     public partial class Case
     {
@@ -48,16 +45,32 @@ namespace Solutionneur_de_sudoku.Sous_fonctions
                 3*(j/3),       // MinV 0 ~ 1 ~ 2 = 0 | 3 ~ 4 ~ 5 = 3 | 6 ~ 7 ~ 8 = 6
                 3*(1+(j/3))-1  // MaxV 0 ~ 1 ~ 2 = 2 | 3 ~ 4 ~ 5 = 5 | 6 ~ 7 ~ 8 = 8
             };
-
-            for (int l = house[0]; l <= house[1]; l++)
+            for (int maybeAnswer = 1; maybeAnswer <= 9; maybeAnswer++)
             {
-                for (int k = house[2]; k <= house[3]; k++)
+                bool canBeThis = true;
+                for (int hi = house[0]; hi <= house[1]; hi++)
                 {
-                    if (grille.casesDeSudoku[k, l].isSolved && ((k != i) || (l != j)) && possibleValues.Contains(grille.casesDeSudoku[k, l].value))
+                    for (int hj = house[2]; hj <= house[3]; hj++)
                     {
-                        possibleValues.Remove(grille.casesDeSudoku[k, l].value);
-                        grille.modification = true;
+                        if (grille.casesDeSudoku[hi, hj].isSolved == false)
+                        {
+                            if (possibleValues.Contains(maybeAnswer))
+                            {
+                                if (grille.casesDeSudoku[hi, hj].possibleValues.Contains(maybeAnswer))
+                                {
+                                    canBeThis = false;
+                                }
+                            }
+                            else
+                            {
+                                canBeThis = false;
+                            }
+                        }
                     }
+                }
+                if (canBeThis)
+                {
+                    valueFound(maybeAnswer);
                 }
             }
             return grille;

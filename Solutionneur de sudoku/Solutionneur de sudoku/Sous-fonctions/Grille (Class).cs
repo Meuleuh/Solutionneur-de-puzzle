@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Solutionneur_de_sudoku.Sous_fonctions
 {
@@ -24,6 +20,16 @@ namespace Solutionneur_de_sudoku.Sous_fonctions
                         if (!casesDeSudoku[i, j].isSolved)
                         {
                             casesDeSudoku[i, j].Detection(this, i, j);
+                        }
+                    }
+                }
+                for (int j = 0; j <= 8; j++)
+                {
+                    for (int i = 0; i <= 8; i++)
+                    {
+                        if (!casesDeSudoku[i, j].isSolved)
+                        {
+                            casesDeSudoku[i, j].Resolution(this, i, j);
                         }
                     }
                 }

@@ -62,6 +62,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Sous-fonctions\Grille %28Class%29.cs" />
+    <Compile Include="Sous-fonctions\Resolution.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="Solutionneur de sudoku.resx">
       <DependentUpon>Solutionneur de sudoku.cs</DependentUpon>
     </EmbeddedResource>

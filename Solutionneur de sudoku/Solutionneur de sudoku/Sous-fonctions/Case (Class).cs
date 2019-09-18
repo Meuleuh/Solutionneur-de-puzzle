@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace Solutionneur_de_sudoku.Sous_fonctions
 {
@@ -30,7 +30,7 @@ namespace Solutionneur_de_sudoku.Sous_fonctions
         internal void valueFound(int value)
         {
             this.value = value;
-            for(int valueI = 1; valueI <= 9; valueI++)
+            for (int valueI = 1; valueI <= 9; valueI++)
             {
                 if (value != valueI && possibleValues.Contains(valueI))
                 {
@@ -38,7 +38,7 @@ namespace Solutionneur_de_sudoku.Sous_fonctions
                 }
             }
             isSolved = true;
-            this.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, (0));
+            Text = value.ToString();
         }
         internal Case()
         {
