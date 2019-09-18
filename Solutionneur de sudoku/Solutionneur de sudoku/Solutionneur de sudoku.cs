@@ -29,11 +29,6 @@ namespace Solutionneur_de_sudoku
                     grille.casesDeSudoku[i, j].Location = new Point(hPos, vPos);
                     grille.casesDeSudoku[i, j].Click += grille.casesDeSudoku[i, j].addValue;
 
-                    /*
-                     * À mettre pour les cases dont la valeur a été définie dès le début
-                     * casesDeSudoku[i, j].Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point,(0));
-                    */
-
                     Controls.Add(grille.casesDeSudoku[i, j]);
                     if (i == 2 || i == 5)
                     {
@@ -62,8 +57,6 @@ namespace Solutionneur_de_sudoku
             sudokuEntre.FlatStyle = new FlatStyle();
             sudokuEntre.Text = "Grille entrée";
             Controls.Add(sudokuEntre);
-
-            //Need fix
             sudokuEntre.Click += grille.valeursEntrees;
         }
 

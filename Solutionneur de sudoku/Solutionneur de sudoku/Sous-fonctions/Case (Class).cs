@@ -10,20 +10,26 @@ namespace Solutionneur_de_sudoku.Sous_fonctions
         bool isSolved = false;
         List<int> possibleValues = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
         internal int value = 0;
+        internal bool gridEntered = false;
         internal void addValue(object sender, EventArgs e)
         {
-            if (value < 9)
+            if (!gridEntered)
             {
-                value += 1;
+                if (value < 9)
+                {
+                    value += 1;
+                }
+                else
+                {
+                    value = 0;
+                }
+                Text = value.ToString();
             }
-            else
-            {
-                value = 0;
-            }
-            Text = value.ToString();
+
         }
         internal void valueFound(int value)
         {
+            this.value = value;
             for(int valueI = 1; valueI <= 9; valueI++)
             {
                 if (value != valueI && possibleValues.Contains(valueI))
@@ -32,6 +38,7 @@ namespace Solutionneur_de_sudoku.Sous_fonctions
                 }
             }
             isSolved = true;
+            this.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, (0));
         }
         internal Case()
         {
