@@ -33,21 +33,28 @@
 
         internal Grille rowResolution(Grille grille, int i, int j)
         {
-            bool notTheAnswer = false;
             for (int valueI = 1; valueI <= 9; valueI++)
             {
-                for (int k = 0; k <= 8; k++)
+                if (possibleValues.Contains(valueI))
                 {
-                    if (k != i)
+                    bool notTheAnswer = false;
+                    for (int k = 0; k <= 8; k++)
                     {
-                        notTheAnswer = !(possibleValues.Contains(valueI) && !grille.casesDeSudoku[k, j].possibleValues.Contains(valueI));
+                        if (k != i)
+                        {
+                            notTheAnswer = (grille.casesDeSudoku[k, j].possibleValues.Contains(valueI));
+                            if (notTheAnswer)
+                            {
+                                break;
+                            }
+                        }
                     }
-                }
-                if (!notTheAnswer)
-                {
-                    valueFound(valueI);
-                    grille.modification = true;
-                    break;
+                    if (!notTheAnswer)
+                    {
+                        valueFound(valueI);
+                        grille.modification = true;
+                        break;
+                    }
                 }
             }
             return grille;
@@ -55,21 +62,28 @@
 
         internal Grille columnResolution(Grille grille, int i, int j)
         {
-            bool notTheAnswer = false;
             for (int valueI = 1; valueI <= 9; valueI++)
             {
-                for (int k = 0; k <= 8; k++)
+                if (possibleValues.Contains(valueI))
                 {
-                    if (k != j)
+                    bool notTheAnswer = false;
+                    for (int k = 0; k <= 8; k++)
                     {
-                        notTheAnswer = !(possibleValues.Contains(valueI) && !grille.casesDeSudoku[i, k].possibleValues.Contains(valueI));
+                        if (k != j)
+                        {
+                            notTheAnswer = (grille.casesDeSudoku[i, k].possibleValues.Contains(valueI));
+                            if (notTheAnswer)
+                            {
+                                break;
+                            }
+                        }
                     }
-                }
-                if (!notTheAnswer)
-                {
-                    valueFound(valueI);
-                    grille.modification = true;
-                    break;
+                    if (!notTheAnswer)
+                    {
+                        valueFound(valueI);
+                        grille.modification = true;
+                        break;
+                    }
                 }
             }
             return grille;
@@ -77,7 +91,6 @@
 
         internal Grille houseResolution(Grille grille, int i, int j)
         {
-            bool notTheAnswer = false;
             int[] house = new int[]
             {
                 3*(i/3),       // MinH 0 ~ 1 ~ 2 = 0 | 3 ~ 4 ~ 5 = 3 | 6 ~ 7 ~ 8 = 6
@@ -88,13 +101,25 @@
 
             for (int valueI = 1; valueI <= 9; valueI++)
             {
-                for (int l = house[0]; l <= house[1]; l++)
+                if (possibleValues.Contains(valueI))
                 {
-                    for (int k = house[2]; k <= house[3]; k++)
+                    bool notTheAnswer = false;
+                    for (int l = house[0]; l <= house[1]; l++)
                     {
-                        if (k != i && l != j)
+                        for (int k = house[2]; k <= house[3]; k++)
                         {
-                            notTheAnswer = !(possibleValues.Contains(valueI) && !grille.casesDeSudoku[k, l].possibleValues.Contains(valueI));
+                            if (k != i && l != j)
+                            {
+                                notTheAnswer = (grille.casesDeSudoku[k, l].possibleValues.Contains(valueI));
+                                if (notTheAnswer)
+                                {
+                                    break;
+                                }
+                            }
+                        }
+                        if (notTheAnswer)
+                        {
+                            break;
                         }
                     }
                     if (!notTheAnswer)
