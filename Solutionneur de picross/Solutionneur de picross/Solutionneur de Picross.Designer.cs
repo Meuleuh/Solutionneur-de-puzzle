@@ -34,8 +34,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "Solutionneur de Picross";
+            this.ClientSize = new System.Drawing.Size(384, 361);
+            this.Name = "Form1";
             this.Text = "Solutionneur de Picross";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
