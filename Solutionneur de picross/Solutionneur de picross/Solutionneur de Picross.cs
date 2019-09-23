@@ -12,19 +12,16 @@ namespace Solutionneur_de_picross
 {
     public partial class Form1 : Form
     {
+        //Création des variables
+        NumericUpDown horizontalSize = new NumericUpDown();
+        NumericUpDown verticalSize = new NumericUpDown();
+        Label sayHorizontalSize = new Label();
+        Label sayVerticalSize = new Label();
+        Button sizeSetted = new Button();
+
         public Form1()
         {
             InitializeComponent();
-            //Assignation d'une taille plus appropriée au programme dans son état initial
-            Size = new Size(201, 100);
-
-            //Création des variables
-            NumericUpDown horizontalSize = new NumericUpDown();
-            NumericUpDown verticalSize = new NumericUpDown();
-            Label sayHorizontalSize = new Label();
-            Label sayVerticalSize = new Label();
-            Button sizeSetted = new Button();
-
             //Assignation de la taille
             horizontalSize.Size = new Size(50, 20);
             verticalSize.Size = new Size(50, 20);
@@ -44,12 +41,28 @@ namespace Solutionneur_de_picross
             sayVerticalSize.Text = "Taille verticale de la grille";
             sizeSetted.Text = "Taille entrée";
 
+            //Assignation d'une taille plus appropriée au programme dans son état initial
+            Size = new Size(201, 100);
+
+            //Assignation des intéractions spéciales
+            sizeSetted.Click += SizeSetted_Click;
+
             //Création des composantes
             Controls.Add(horizontalSize);
             Controls.Add(verticalSize);
             Controls.Add(sayHorizontalSize);
             Controls.Add(sayVerticalSize);
             Controls.Add(sizeSetted);
+        }
+
+        private void SizeSetted_Click(object sender, EventArgs e)
+        {
+            //On cache les composantes pour entrer en phase 2
+            Controls.Remove(horizontalSize);
+            Controls.Remove(verticalSize);
+            Controls.Remove(sayHorizontalSize);
+            Controls.Remove(sayVerticalSize);
+            Controls.Remove(sizeSetted);
         }
 
         private void Form1_Load(object sender, EventArgs e)
