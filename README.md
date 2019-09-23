@@ -1,1 +1,1 @@
-# Solutionneur-de-sudoku
+# Solutionneur de puzzle
