@@ -78,6 +78,7 @@ namespace Solutionneur_de_picross
             Label[,] grille = new Label[(int)horizontalSize.Value, (int)verticalSize.Value];
             TextBox[] columns = new TextBox[(int)horizontalSize.Value];
             TextBox[] rows = new TextBox[(int)verticalSize.Value];
+            Label bg = new Label();
             for (int y = 0; y < (int)verticalSize.Value; y++)
             {
                 for (int x = 0; x < (int)horizontalSize.Value; x++)
@@ -105,6 +106,10 @@ namespace Solutionneur_de_picross
                 rows[y].Location = new Point(0, y * 17 + 101);
                 Controls.Add(rows[y]);
             }
+            bg.Size = new Size((int)horizontalSize.Value * 17+2, (int)verticalSize.Value * 17+2);
+            bg.Location = new Point(100, 100);
+            bg.BackColor = Color.Black;
+            Controls.Add(bg);
 
         }
 
