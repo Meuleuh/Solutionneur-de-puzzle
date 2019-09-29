@@ -96,6 +96,7 @@ namespace Solutionneur_de_picross
                 columns[x].Multiline = true;
                 columns[x].Size = new Size(17, 100);
                 columns[x].Location = new Point(x * 17 + 101, 0);
+                columns[x].TextAlign = HorizontalAlignment.Center;
                 Controls.Add(columns[x]);
             }
             for (int y = 0; y < (int)verticalSize.Value; y++)
@@ -104,6 +105,7 @@ namespace Solutionneur_de_picross
                 rows[y].Multiline = true;
                 rows[y].Size = new Size(100, 17);
                 rows[y].Location = new Point(0, y * 17 + 101);
+                rows[y].TextAlign = HorizontalAlignment.Center;
                 Controls.Add(rows[y]);
             }
             bg.Size = new Size((int)horizontalSize.Value * 17+2, (int)verticalSize.Value * 17+2);
