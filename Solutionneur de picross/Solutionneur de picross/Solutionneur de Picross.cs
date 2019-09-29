@@ -47,6 +47,11 @@ namespace Solutionneur_de_picross
             //Assignation des intéractions spéciales
             sizeSetted.Click += SizeSetted_Click;
 
+            //Assignation des valeurs maximales (Bug déclaré #1)
+            horizontalSize.Maximum = 50;
+            verticalSize.Maximum = 50;
+
+
             //Création des composantes
             Controls.Add(horizontalSize);
             Controls.Add(verticalSize);
@@ -63,6 +68,41 @@ namespace Solutionneur_de_picross
             Controls.Remove(sayHorizontalSize);
             Controls.Remove(sayVerticalSize);
             Controls.Remove(sizeSetted);
+
+            //On ajuste la taille de l'application
+            Size = new Size(100 + (int)horizontalSize.Value * 15, 130 + (int)verticalSize.Value * 15);
+
+            //On crée la grille
+            Label[,] grille = new Label[(int)horizontalSize.Value, (int)verticalSize.Value];
+            TextBox[] columns = new TextBox[(int)horizontalSize.Value];
+            TextBox[] rows = new TextBox[(int)verticalSize.Value];
+            for (int y = 0; y < (int)verticalSize.Value; y++)
+            {
+                for (int x = 0; x < (int)horizontalSize.Value; x++)
+                {
+                    grille[x, y] = new Label();
+                    grille[x, y].BackColor = Color.White;
+                    grille[x, y].Size = new Size(15, 20);
+                    grille[x, y].Location = new Point(x * 15 + 100, y * 15 + 100);
+                    Controls.Add(grille[x, y]);
+                }
+            }
+            for (int x = 0; x < (int)horizontalSize.Value; x++)
+            {
+                columns[x] = new TextBox();
+                columns[x].Multiline = true;
+                columns[x].Size = new Size(15, 100);
+                columns[x].Location = new Point(x * 15 + 100, 0);
+                Controls.Add(columns[x]);
+            }
+            for (int y = 0; y < (int)verticalSize.Value; y++)
+            {
+                rows[y] = new TextBox();
+                rows[y].Size = new Size(100, 15);
+                rows[y].Location = new Point(0, y * 15 + 100);
+                Controls.Add(rows[y]);
+            }
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
