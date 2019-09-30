@@ -79,6 +79,7 @@ namespace Solutionneur_de_picross
             TextBox[] columns = new TextBox[(int)horizontalSize.Value];
             TextBox[] rows = new TextBox[(int)verticalSize.Value];
             Label bg = new Label();
+            Button grilleEntree = new Button();
             for (int y = 0; y < (int)verticalSize.Value; y++)
             {
                 for (int x = 0; x < (int)horizontalSize.Value; x++)
@@ -108,10 +109,26 @@ namespace Solutionneur_de_picross
                 rows[y].TextAlign = HorizontalAlignment.Right;
                 Controls.Add(rows[y]);
             }
-            bg.Size = new Size((int)horizontalSize.Value * 20+2, (int)verticalSize.Value * 20+2);
+
+            bg.Size = new Size((int)horizontalSize.Value * 20 + 2, (int)verticalSize.Value * 20 + 2);
+            grilleEntree.Size = new Size(101, 101);
+
             bg.Location = new Point(100, 100);
+            grilleEntree.Location = new Point(-1, -1);
+
             bg.BackColor = Color.Black;
+
+            grilleEntree.Text = "Grille entrée";
+
+            grilleEntree.Click += GrilleEntree_Click;
+
             Controls.Add(bg);
+            Controls.Add(grilleEntree);
+
+            void GrilleEntree_Click(object sender, EventArgs e)
+            {
+
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
