@@ -48,8 +48,8 @@ namespace Solutionneur_de_picross
             sizeSetted.Click += SizeSetted_Click;
 
             //Assignation des valeurs maximales (Bug déclaré #1)
-            horizontalSize.Maximum = 50;
-            verticalSize.Maximum = 50;
+            horizontalSize.Maximum = 45;
+            verticalSize.Maximum = 45;
             horizontalSize.Minimum = 1;
             verticalSize.Minimum = 1;
 
@@ -72,7 +72,7 @@ namespace Solutionneur_de_picross
             Controls.Remove(sizeSetted);
 
             //On ajuste la taille de l'application
-            Size = new Size(118 + (int)horizontalSize.Value * 17, 141 + (int)verticalSize.Value * 17);
+            Size = new Size(118 + (int)horizontalSize.Value * 22, 141 + (int)verticalSize.Value * 22);
 
             //On crée la grille
             Label[,] grille = new Label[(int)horizontalSize.Value, (int)verticalSize.Value];
@@ -85,8 +85,8 @@ namespace Solutionneur_de_picross
                 {
                     grille[x, y] = new Label();
                     grille[x, y].BackColor = Color.White;
-                    grille[x, y].Size = new Size(15, 15);
-                    grille[x, y].Location = new Point(x * 17 + 102, y * 17 + 102);
+                    grille[x, y].Size = new Size(18, 18);
+                    grille[x, y].Location = new Point(x * 20 + 102, y * 20 + 102);
                     Controls.Add(grille[x, y]);
                 }
             }
@@ -94,8 +94,8 @@ namespace Solutionneur_de_picross
             {
                 columns[x] = new TextBox();
                 columns[x].Multiline = true;
-                columns[x].Size = new Size(17, 100);
-                columns[x].Location = new Point(x * 17 + 101, 0);
+                columns[x].Size = new Size(20, 100);
+                columns[x].Location = new Point(x * 20 + 101, 0);
                 columns[x].TextAlign = HorizontalAlignment.Center;
                 Controls.Add(columns[x]);
             }
@@ -103,12 +103,12 @@ namespace Solutionneur_de_picross
             {
                 rows[y] = new TextBox();
                 rows[y].Multiline = true;
-                rows[y].Size = new Size(100, 17);
-                rows[y].Location = new Point(0, y * 17 + 101);
-                rows[y].TextAlign = HorizontalAlignment.Center;
+                rows[y].Size = new Size(100, 20);
+                rows[y].Location = new Point(0, y * 20 + 101);
+                rows[y].TextAlign = HorizontalAlignment.Right;
                 Controls.Add(rows[y]);
             }
-            bg.Size = new Size((int)horizontalSize.Value * 17+2, (int)verticalSize.Value * 17+2);
+            bg.Size = new Size((int)horizontalSize.Value * 20+2, (int)verticalSize.Value * 20+2);
             bg.Location = new Point(100, 100);
             bg.BackColor = Color.Black;
             Controls.Add(bg);
