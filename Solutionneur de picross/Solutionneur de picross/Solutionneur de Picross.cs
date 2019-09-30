@@ -112,7 +112,6 @@ namespace Solutionneur_de_picross
             bg.Location = new Point(100, 100);
             bg.BackColor = Color.Black;
             Controls.Add(bg);
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
